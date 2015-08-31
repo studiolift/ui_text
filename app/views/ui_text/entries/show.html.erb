@@ -1,0 +1,28 @@
+<%= form_for(@entry, url: entry_path(key: @entry)) do |f| %>
+  <% if @entry.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @entry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= @entry.locale %>.<%= @entry.key %>
+  </div>
+
+  <div class="field">
+    <%= @locale_hash[@entry.key] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :value %>
+    <%= f.text_area :value %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

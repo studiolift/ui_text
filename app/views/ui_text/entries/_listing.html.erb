@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>Locale</th>
+      <th>Key</th>
+      <th>Value</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= entry.locale %></td>
+        <td><%= link_to entry.key, entry_path(key: entry) %></td>
+        <td><%= entry.value %></td>
+        <td><%= @locale_hash[entry.key] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
