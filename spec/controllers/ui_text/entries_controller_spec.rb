@@ -15,7 +15,7 @@ module UiText
 
     it "POST #create" do
       post :create, locale: :en, key: 'foo', entry: { value: 'bar' }
-      expect(response).to redirect_to(entry_path(locale: 'en', key: 'foo'))
+      expect(response).to redirect_to(entries_path(locale: 'en'))
     end
 
     describe "GET #show" do
@@ -38,7 +38,7 @@ module UiText
     it "PATCH #update" do
       Entry.create! locale: 'en', key: 'foo', value: 'x'
       patch :update, locale: :en, key: 'foo', entry: { value: 'bar' }
-      expect(response).to redirect_to(entry_path(locale: 'en', key: 'foo'))
+      expect(response).to redirect_to(entries_path(locale: 'en'))
     end
 
     it "PATCH #update without a value deletes record" do
