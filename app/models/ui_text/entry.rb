@@ -5,7 +5,7 @@ module UiText
     after_save :update_cache
 
     after_destroy do |record|
-      UISTORE.delete("#{record.locale}.#{record.key}")
+      UiText.config.backend.delete("#{record.locale}.#{record.key}")
       update_cache
     end
 

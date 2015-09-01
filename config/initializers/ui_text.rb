@@ -1,7 +1,6 @@
-UISTORE = {}
-
-I18n.backend = I18n::Backend::Chain.new(
-  I18n::Backend::KeyValue.new(UISTORE), I18n.backend)
+UiText.configure do |config|
+  config.backend = {}
+end
 
 if ActiveRecord::Base.connection.table_exists? 'ui_text_entries'
   UiText::Entry.update_cache
