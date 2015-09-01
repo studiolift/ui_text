@@ -8,7 +8,7 @@ module UiText
 
     def self.run(hash, parents = [])
       a = []
-      hash.each do |k, v|
+      Hash(hash).each do |k, v|
         case v
         when Hash
           a << run(v, [parents, [k]])
