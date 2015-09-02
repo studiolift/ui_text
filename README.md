@@ -3,7 +3,7 @@
 ## Add to your gem file
 
 ```ruby
-gem 'ui_text', git: 'git://github.com/krishandley/ui_text.git', tag: 'v0.0.1'
+gem 'ui_text', git: 'git://github.com/krishandley/ui_text.git', tag: 'v0.0.2'
 ```
 
 ## Install the migrations

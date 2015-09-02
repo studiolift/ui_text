@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ui_text (0.0.1)
+    ui_text (0.0.2)
       rails (~> 4.2.3)
 
 GEM
