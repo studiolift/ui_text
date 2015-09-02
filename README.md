@@ -19,3 +19,13 @@ Rails.application.routes.draw do
   mount UiText::Engine => '/ui_text'
 end
 ```
+
+## Use your own layout
+
+/app/controllers/ui_text/appliaction_controller.rb
+
+```ruby
+class UiText::ApplicationController < ::ApplicationController
+  layout 'admin'
+end
+```
