@@ -6,19 +6,19 @@ module UiText
       @locale_hash = locale_hash
 
       @entries = @locale_hash.sort.map do |k, v|
-        Entry.where(locale: locale, key: k)
-             .first_or_initialize
+        UiText::Entry.where(locale: locale, key: k)
+                     .first_or_initialize
       end
     end
 
     def show
       @locale_hash = locale_hash
 
-      @entry = Entry.where(locale: locale, key: key).first_or_initialize
+      @entry = UiText::Entry.where(locale: locale, key: key).first_or_initialize
     end
 
     def create
-      @entry = Entry.new locale: locale, key: key, value: params[:entry][:value]
+      @entry = UiText::Entry.new locale: locale, key: key, value: params[:entry][:value]
 
       if @entry.save
         redirect_to redirect_path, notice: 'Entry was successfully created.'
@@ -28,7 +28,7 @@ module UiText
     end
 
     def update
-      @entry = Entry.find_by locale: locale, key: key
+      @entry = UiText::Entry.find_by locale: locale, key: key
 
       if @entry.update entry_params
         redirect_to redirect_path, notice: 'Entry was successfully updated.'
@@ -38,7 +38,7 @@ module UiText
     end
 
     def destroy
-      @entry = Entry.find_by locale: locale, key: key
+      @entry = UiText::Entry.find_by locale: locale, key: key
 
       @entry.destroy
 
